@@ -1,1 +1,55 @@
-/Users/jerrysims/dotfiles/aliases
+# all-purpose aliases
+alias h="cd ~"
+alias c="clear && printf '\e]0;\a'"
+alias hc="cd ~ && clear && printf '\e]0;\a'"
+alias ll="ls -lhF"
+alias lla="ls -lAhF"
+alias ..="cd .."
+alias ...="cd ../.."
+alias apache="sudo /usr/sbin/apachectl"
+alias dir_size="du -sh"
+alias flush_cache="dscacheutil -flushcache"
+alias updatedb="sudo /usr/libexec/locate.updatedb"
+alias kat="pygmentize -f terminal -g"
+alias mate="echo 'Did you mean subl perhaps?'"
+
+# rails
+alias migrate="rake db:migrate && rake db:test:prepare"
+alias gr="rake routes | grep"
+alias resetdb="bundle exec rake log:clear db:reset && bundle exec rake db:test:prepare"
+alias resetdbf="FULL=1 bundle exec rake log:clear db:reset && bundle exec rake db:test:prepare"
+
+# s3
+alias s3="/usr/lib/s3sync/s3cmd.rb"
+
+# rails server (2.x and 3.x)
+function rs {
+  if [ -e script/rails ]; then
+    bundle exec rails server $@
+  else
+    script/server $@
+  fi
+}
+
+# rails console (2.x and 3.x)
+function rc {
+  if [ -e script/rails ]; then
+    bundle exec rails console $@
+  else
+    script/console $@
+  fi
+}
+
+# rails generate (2.x and 3.x)
+function rg {
+  if [ -e script/rails ]; then
+    bundle exec rails generate $@
+  else
+    script/generate $@
+  fi
+}
+
+# rails bundle exec
+function be {
+  bundle exec $@
+}

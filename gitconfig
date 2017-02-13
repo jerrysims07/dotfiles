@@ -1,0 +1,56 @@
+[user]
+  name = Jerry Sims
+  email = jerrysims07@gmail.com
+[credential]
+  helper = osxkeychain
+[alias]
+  ci = commit -m
+  st = status -s
+  co = checkout
+  br = branch
+  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  pushm = push origin master
+  pullm = pull origin master
+  pushs = push origin staging
+  pulls = pull origin staging
+  fu = fetch upstream -v
+  stache = stash
+  fo = fetch origin -v --prune
+  standup = log --since yesterday --author traviskroberts@gmail.com --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[github]
+  user = jerrysims07
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  ui = always
+[color "diff"]
+  meta = yellow bold
+  commit = green bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
+[merge]
+  tool = opendiff
+[mergetool]
+  keepBackup = false
+[core]
+  editor = vim
+  pager = diff-so-fancy | less --tabs=1,5 -RFX
+[push]
+  default = current
+[apply]
+  whitespace = nowarn
+[rerere]
+  enabled = true
+[diff]
+  algorithm = patience
+[filter "media"]
+  clean = git-media-clean %f
+  smudge = git-media-smudge %f
+[filter "lfs"]
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
